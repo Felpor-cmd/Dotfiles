@@ -1,0 +1,8 @@
+[Added Associations]
+image/jpeg=com.interversehq.qView.desktop;
+
+[Default Applications]
+image/jpeg=com.interversehq.qView.desktop;
+
+[Removed Associations]
+image/jpeg=firefox-2.desktop;firefox.desktop;firefox-2.desktop;

@@ -1,0 +1,2 @@
+#/usr/bin/kitten
+hyprlock
