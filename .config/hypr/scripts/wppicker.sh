@@ -15,7 +15,7 @@ SELECTED_WALL=$(for a in $(ls -t *.jpg *.png *.gif *.jpeg 2>/dev/null); do echo 
 SELECTED_PATH="$WALLPAPER_DIR/$SELECTED_WALL"
 
 # === SET WALLPAPER WITH SWWW ===
-swww img "$SELECTED_PATH" --transition-type any
+swww img "$SELECTED_PATH" --transition-type 
 
 # === UPDATE COLORS WITH MATUGEN ===
 matugen image "$SELECTED_PATH"
@@ -24,3 +24,6 @@ matugen image "$SELECTED_PATH"
 rm -f "$SYMLINK_PATH"                # remove se já existir
 ln -s "$SELECTED_PATH" "$SYMLINK_PATH"
 
+
+killall -9 swaync
+swaync &

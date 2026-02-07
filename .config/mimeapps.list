@@ -1,8 +1,43 @@
 [Added Associations]
 image/jpeg=com.interversehq.qView.desktop;
+image/png=com.interversehq.qView.desktop;
+text/plain=code.desktop;
+x-scheme-handler/http=userapp-Zen-ETVVH3.desktop;userapp-Zen-VSTUH3.desktop;
+x-scheme-handler/https=userapp-Zen-ETVVH3.desktop;userapp-Zen-VSTUH3.desktop;
+x-scheme-handler/chrome=userapp-Zen-ETVVH3.desktop;userapp-Zen-VSTUH3.desktop;
+text/html=userapp-Zen-VSTUH3.desktop;userapp-Zen-ETVVH3.desktop;
+application/x-extension-htm=userapp-Zen-VSTUH3.desktop;userapp-Zen-ETVVH3.desktop;
+application/x-extension-html=userapp-Zen-VSTUH3.desktop;userapp-Zen-ETVVH3.desktop;
+application/x-extension-shtml=userapp-Zen-VSTUH3.desktop;userapp-Zen-ETVVH3.desktop;
+application/xhtml+xml=userapp-Zen-VSTUH3.desktop;userapp-Zen-ETVVH3.desktop;
+application/x-extension-xhtml=userapp-Zen-VSTUH3.desktop;userapp-Zen-ETVVH3.desktop;
+application/x-extension-xht=userapp-Zen-VSTUH3.desktop;userapp-Zen-ETVVH3.desktop;
+x-scheme-handler/roblox-studio-auth=org.vinegarhq.Vinegar.desktop;
 
 [Default Applications]
+application/x-ms-dos-executable;application/x-wine-extension-msp;application/x-msi;application/x-msdos-program;text/win-bat;=PortProton.desktop
 image/jpeg=com.interversehq.qView.desktop;
+image/png=com.interversehq.qView.desktop;
+text/plain=code.desktop;
+x-scheme-handler/hydralauncher=hydralauncher.desktop
+x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/http=userapp-Zen-ETVVH3.desktop
+x-scheme-handler/https=userapp-Zen-ETVVH3.desktop
+x-scheme-handler/chrome=userapp-Zen-ETVVH3.desktop
+text/html=userapp-Zen-ETVVH3.desktop
+application/x-extension-htm=userapp-Zen-ETVVH3.desktop
+application/x-extension-html=userapp-Zen-ETVVH3.desktop
+application/x-extension-shtml=userapp-Zen-ETVVH3.desktop
+application/xhtml+xml=userapp-Zen-ETVVH3.desktop
+application/x-extension-xhtml=userapp-Zen-ETVVH3.desktop
+application/x-extension-xht=userapp-Zen-ETVVH3.desktop
+application/x-010intel=010editor-import.desktop
+application/x-010motorola=010editor-import.desktop
+application/x-010script=010editor.desktop
+application/x-010template=010editor.desktop
+application/x-010project=010editor-project.desktop
+application/x-010workspace=010editor-project.desktop
+x-scheme-handler/roblox-studio-auth=org.vinegarhq.Vinegar.desktop
 
 [Removed Associations]
 image/jpeg=firefox-2.desktop;firefox.desktop;firefox-2.desktop;

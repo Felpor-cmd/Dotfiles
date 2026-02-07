@@ -1,6 +1,11 @@
 @theme "/dev/null"
 @import "colors.rasi"
 
+/* Transparência global recomendada pelo rofi */
+* {
+    background: transparent;
+}
+
 configuration {
 	modi: "window,run,drun";
 	display-drun: "Applications";
@@ -13,50 +18,41 @@ configuration {
 }
 
 window {
-    /* properties for window widget */
-    transparency:                "real";
-    location:                    center;
-    anchor:                      center;
-    fullscreen:                  false;
-    width:                       1000px;
-    x-offset:                    0px;
-    y-offset:                    0px;
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 1000px;
 
-    /* properties for all widgets */
-    enabled:                     true;
-    border:			 2px solid;
-    border-color:		 @secondary-container;
-    border-radius:               15px;
-    cursor:                      "default";
-    background-color:            @on-primary-fixed;
+    border: 1px solid;
+    border-color: @secondary-container;
+    border-radius: 5px;
+
+    
+    background-color: rgba(16, 18, 16, 0.96);
+
+    background-opacity: 0.19;
 }
+
 
 mainbox {
     enabled:                     true;
     spacing:                     0px;
     background-color:            transparent;
     orientation:                 horizontal;
-    children:                    [ "imagebox", "listbox" ];
+    children:                    [ "leftbox", "rightbox" ];
 }
 
-imagebox {
-    padding:                     20px;
-    background-color:            transparent;
-    background-image:            url("~/.config/hypr/current_wallpaper", height);
-    orientation:                 vertical;
-    children:                    [ "inputbar", "dummy", "mode-switcher" ];
-}
+/* ============================
+   LADO ESQUERDO (search + lista)
+   ============================ */
 
-listbox {
-    spacing:                     20px;
+leftbox {
+    spacing:                     15px;
     padding:                     20px;
     background-color:            transparent;
     orientation:                 vertical;
-    children:                    [ "message", "listview" ];
-}
-
-dummy {
-    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
 }
 
 inputbar {
@@ -64,10 +60,11 @@ inputbar {
     spacing:                     10px;
     padding:                     15px;
     border-radius:               10px;
-    background-color:		 @on-primary;
-    text-color:			 @on-surface;
+    background-color:            @surface-container-highest;
+    text-color:			         @on-surface;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
@@ -75,31 +72,14 @@ textbox-prompt-colon {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 entry {
     enabled:                     true;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
     placeholder:                 "Search";
-    placeholder-color:           inherit;
-}
-
-mode-switcher{
-    enabled:                     true;
-    spacing:                     20px;
-    background-color:            transparent;
-    text-color:                  @primary-fixed;
-}
-button {
-    padding:                     15px;
-    border-radius:               10px;
-    background-color:            @on-primary;
-    text-color:                  inherit;
-    cursor:                      pointer;
-}
-button selected {
-    background-color:            @primary;
-    text-color:                  @on-secondary;
+    placeholder-color:           @on-surface-variant;
 }
 
 listview {
@@ -110,77 +90,112 @@ listview {
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-    
+
     spacing:                     10px;
     background-color:            transparent;
     text-color:                  @on-surface;
-    cursor:                      "default";
 }
 
+/* Estilo dos itens da lista */
 element {
     enabled:                     true;
     spacing:                     15px;
-    padding:                     8px;
+    padding:                     10px;
     border-radius:               10px;
     background-color:            transparent;
     text-color:                  @on-surface;
     cursor:                      pointer;
 }
+
 element normal.normal {
-    background-color:            inherit;
-    text-color:                  inherit;
-}
-element normal.urgent {
-    background-color:            @error;
+    background-color:            transparent;
     text-color:                  @on-surface;
 }
-element normal.active {
-    background-color:            @primary;
-    text-color:                  @on-surface;
-}
+
 element selected.normal {
     background-color:            @primary;
-    text-color:                  @on-secondary;
+    text-color:                  @on-primary-fixed;
 }
-element selected.urgent {
-    background-color:            @error;
-    text-color:                  @on-secondary;
-}
-element selected.active {
-    background-color:            @error;
-    text-color:                  @on-secondary;
-}
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        32px;
-    cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
-    cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+}
+
+/* ============================
+   LADO DIREITO (imagem + nome + botões)
+   ============================ */
+
+rightbox {
+    spacing:                     20px;
+    padding:                     20px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "wallpaper", "mode-switcher" ];
+}
+
+/* imagem do wallpaper */
+wallpaper {
+    background-color:            transparent;
+    background-image:            url("~/.config/hypr/current_wallpaper", height);
+    border-radius:               5px;
+    padding:                     0px;
+    height:                      1600px;
+    width:                       900px;
+    size:                        0px;
+}
+
+/* nome fixo do wallpaper */
+wallpaper-name {
+    str:                         "current_wallpaper";
+    text-color:                  @on-surface-variant;
+    background-color:            @surface-container-high;
+    padding:                     10px;
+    border-radius:               5px;
+}
+
+mode-switcher {
+    enabled:                     true;
+    spacing:                     15px;
+    orientation:                 vertical;
+    background-color:            transparent;
+    text-color:                  @primary-fixed;
+}
+
+button {
+    padding:                     15px;
+    border-radius:               10px;
+    background-color:            @surface-container-highest;
+    text-color:                  @on-surface;
+    cursor:                      pointer;
+}
+
+button selected {
+    background-color:            @primary;
+    text-color:                  @on-primary;
 }
 
 message {
     background-color:            transparent;
 }
+
 textbox {
     padding:                     15px;
     border-radius:               10px;
-    background-color:            @on-primary;
+    background-color:            @surface-container-high;
     text-color:                  @on-surface;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
 }
+
 error-message {
     padding:                     15px;
-    border-radius:               20px;
-    background-color:            @on-primary;
-    text-color:                  @on-surface;
+    border-radius:               10px;
+    background-color:            @error-container;
+    text-color:                  @on-error-container;
 }

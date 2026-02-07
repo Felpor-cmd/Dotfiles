@@ -37,7 +37,7 @@
 	"drawer": {
 		"transition-duration": 500,
 		"children-class": "cpu",
-		"transition-left-to-right": true
+		"transition-left-to-right": false
         },
 	"modules": [
 		"temperature",		
@@ -56,14 +56,10 @@
 },
 "group/audio": {
 	"orientation": "inherit",
-	"drawer": {
-		"transition-duration": 500,
-		"children-class": "pulseaudio",
-		"transition-left-to-right": true
-        },
+
 	"modules": [
 		"pulseaudio",
-		"pulseaudio#microphone",
+		"pulseaudio#microphone"
 	]
 },
 
